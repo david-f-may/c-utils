@@ -1,0 +1,1016 @@
+
+D: __bswap_16()
+F: __builtin_bswap16()
+
+D: __bswap_32()
+F: __builtin_bswap32()
+
+D: __bswap_64()
+F: __builtin_bswap64()
+
+D: __uint16_identity()
+
+D: __uint32_identity()
+
+D: __uint64_identity()
+
+D: nsort_elapsed()
+F: gettimeofday()
+s: timeval.tv_sec
+s: timeval.tv_usec
+
+D: set_sortError()
+F: pthread_mutex_lock()
+g: sortError_mutex
+G: sortError
+F: pthread_mutex_unlock()
+
+D: get_sortError()
+F: pthread_mutex_lock()
+g: sortError_mutex
+g: sortError
+F: pthread_mutex_unlock()
+
+D: nsort_check_error()
+F: get_sortError()
+
+D: nsort_check_list_error()
+s: _nsort_list_t.listError
+F: nsort_check_error()
+
+D: nsort_check_sort_error()
+s: _nsort_t.sortError
+F: nsort_check_list_error()
+s: _nsort_t.lh
+
+D: nsort_show_error()
+F: get_sortError()
+F: strcat()
+F: strerror_r()
+F: __errno_location()
+F: strlen()
+F: snprintf()
+g: sortErrorString[]
+g: sortErrorString
+
+D: nsort_show_error_num()
+F: strcat()
+F: strerror_r()
+F: __errno_location()
+F: strlen()
+F: snprintf()
+g: sortErrorString[]
+g: sortErrorString
+
+D: nsort_show_list_error()
+s: _nsort_list_t.listError
+F: get_sortError()
+F: snprintf()
+g: sortErrorString[]
+g: sortErrorString
+F: nsort_show_error_num()
+
+D: nsort_show_sort_error()
+s: _nsort_t.lh
+F: nsort_check_sort_error()
+F: nsort_check_list_error()
+F: nsort_check_error()
+s: _nsort_t.sortError
+F: nsort_show_list_error()
+F: snprintf()
+g: sortErrorString[]
+g: sortErrorString
+
+D: nsort_text_file_split()
+F: strchr()
+
+D: nsort_list_create()
+F: malloc()
+F: set_sortError()
+
+D: nsort_list_destroy()
+F: free()
+
+D: nsort_list_init()
+F: set_sortError()
+F: memset()
+S: _nsort_list_t.head
+F: malloc()
+s: _nsort_list_t.head
+S: _nsort_list_t.listError
+S: _nsort_list_t.tail
+s: _nsort_list_t.tail
+F: free()
+g: __nsort_listsInUse
+F: pthread_mutex_lock()
+g: __nsort_listsInUse_mutex
+G: __nsort_listsInUse
+F: pthread_mutex_unlock()
+g: __nsort_head_mutex
+g: __nsort_tail_mutex
+G: __nsort_head
+g: __nsort_head
+S: _nsort_list_t.__n
+S: _nsort_list_t.__p
+G: __nsort_tail
+g: __nsort_tail
+s: _nsort_list_t.__p
+S: _nsort_link_t.next
+S: _nsort_link_t.prev
+S: _nsort_list_t.current
+
+D: nsort_list_del()
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+s: _nsort_link_t.prev
+S: _nsort_list_t.listError
+F: pthread_mutex_lock()
+g: __nsort_head_mutex
+g: __nsort_tail_mutex
+s: _nsort_list_t.__p
+s: _nsort_list_t.__n
+S: _nsort_list_t.__p
+S: _nsort_list_t.__n
+F: pthread_mutex_unlock()
+g: __nsort_listsInUse_mutex
+g: __nsort_head
+g: __nsort_tail
+F: free()
+G: __nsort_head
+G: __nsort_tail
+G: __nsort_listsInUse
+
+D: nsort_list_insert_link()
+s: _nsort_list_t.current
+S: _nsort_list_t.current
+s: _nsort_list_t.tail
+s: _nsort_link_t.prev
+S: _nsort_link_t.prev
+S: _nsort_link_t.next
+s: _nsort_link_t.next
+S: _nsort_list_t.number
+
+D: nsort_list_remove_link()
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+s: _nsort_list_t.current
+S: _nsort_list_t.current
+s: _nsort_link_t.prev
+S: _nsort_link_t.next
+S: _nsort_link_t.prev
+S: _nsort_list_t.number
+
+D: nsort_list_clear()
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+s: _nsort_link_t.prev
+S: _nsort_list_t.current
+F: nsort_list_remove_link()
+F: free()
+s: _nsort_link_t.data
+
+D: nsort_list_write_block()
+s: _nsort_list_t.number
+F: lseek()
+F: __errno_location()
+F: set_sortError()
+F: nsort_check_error()
+F: malloc()
+S: _nsort_list_t.listError
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+F: memcpy()
+s: _nsort_link_t.data
+F: write()
+F: close()
+F: dup()
+F: free()
+
+D: nsort_list_read_block()
+F: lseek()
+F: __errno_location()
+F: set_sortError()
+F: nsort_check_error()
+F: malloc()
+S: _nsort_list_t.listError
+F: read()
+F: free()
+F: nsort_list_init()
+s: _nsort_list_t.number
+F: nsort_list_remove_link()
+s: _nsort_link_t.data
+F: memcpy()
+S: _nsort_link_t.data
+S: _nsort_list_t.current
+s: _nsort_list_t.tail
+s: _nsort_link_t.prev
+F: nsort_list_insert_link()
+
+D: nsort_list_store()
+S: _nsort_store_t.number
+s: _nsort_list_t.number
+S: _nsort_store_t.size
+F: creat()
+F: __errno_location()
+F: set_sortError()
+F: nsort_check_error()
+S: _nsort_list_t.listError
+F: get_sortError()
+F: close()
+F: open()
+F: write()
+F: nsort_list_write_block()
+
+D: nsort_list_save()
+F: malloc()
+S: _nsort_list_t.listError
+F: memset()
+S: _nsort_store_t.thisMagic
+F: strncpy()
+s: _nsort_store_t.description
+F: time()
+F: localtime_r()
+F: asctime_r()
+F: strchr()
+F: strcpy()
+s: _nsort_store_t.timeStamp
+F: nsort_list_store()
+F: free()
+
+D: nsort_list_retrieve()
+F: open()
+F: __errno_location()
+F: set_sortError()
+F: nsort_check_error()
+F: read()
+S: _nsort_list_t.listError
+F: get_sortError()
+s: _nsort_store_t.thisMagic
+F: close()
+F: nsort_list_read_block()
+s: _nsort_store_t.size
+s: _nsort_store_t.number
+
+D: nsort_list_get()
+F: malloc()
+F: set_sortError()
+F: memset()
+F: nsort_list_retrieve()
+F: free()
+
+D: nsort_list_get_all()
+F: malloc()
+F: set_sortError()
+F: memset()
+F: nsort_list_retrieve()
+F: strncpy()
+s: _nsort_store_t.description
+s: _nsort_store_t.timeStamp
+F: free()
+
+D: nsort_list_merge_sorted()
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+S: _nsort_list_t.listError
+F: nsort_list_init()
+F: nsort_list_merge_sorted/compare()
+s: _nsort_link_t.data
+F: nsort_list_insert_link()
+S: _nsort_link_t.next
+S: _nsort_link_t.prev
+S: _nsort_list_t.number
+
+D: returnClean()
+
+D: nsort_create()
+F: malloc()
+F: set_sortError()
+
+D: nsort_destroy()
+F: free()
+
+D: nsort_init()
+S: _nsort_t.sortError
+F: memset()
+S: _nsort_t.head
+F: malloc()
+s: _nsort_t.head
+S: _nsort_t.tail
+s: _nsort_t.tail
+S: _nsort_node_t.prev
+S: _nsort_node_t.next
+S: _nsort_t.current
+S: _nsort_t.isUnique
+S: _nsort_t.manageAllocs
+S: _nsort_t.compare
+S: _nsort_t.lh
+F: nsort_list_create()
+s: _nsort_t.lh
+F: free()
+F: nsort_list_init()
+s: _nsort_list_t.listError
+F: nsort_check_error()
+F: get_sortError()
+
+D: nsort_del()
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_t.tail
+F: free()
+s: _nsort_t.manageAllocs
+g: returnClean
+F: nsort_list_remove_link()
+s: _nsort_t.lh
+F: nsort_del/delFunc()
+s: _nsort_link_t.data
+F: nsort_list_del()
+F: nsort_list_destroy()
+
+D: nsort_new_node()
+F: malloc()
+S: _nsort_t.sortError
+S: _nsort_node_t.prev
+S: _nsort_node_t.next
+S: _nsort_node_t.here
+S: _nsort_node_t.level[]
+s: _nsort_node_t.level
+s: _nsort_t.tail
+S: _nsort_t.current
+S: _nsort_t.numNodes
+
+D: nsort_add_item()
+s: _nsort_t.numCompares
+S: _nsort_t.thresh
+F: nsort_restructure_nodes()
+s: _nsort_t.thresh
+S: _nsort_t.numCompares
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_t.tail
+s: _nsort_t.lh
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+S: _nsort_list_t.current
+F: nsort_list_insert_link()
+s: _nsort_t.compare
+F: *_nsort_t.compare()
+s: _nsort_link_t.data
+s: _nsort_t.isUnique
+S: _nsort_t.sortError
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+s: _nsort_link_t.prev
+F: nsort_new_node()
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+S: _nsort_t.current
+F: *_nsort_t.compare()
+s: _nsort_node_t.prev
+s: _nsort_node_t.level[]
+s: _nsort_node_t.level
+F: *_nsort_t.compare()
+s: _nsort_node_t.here
+F: *_nsort_t.compare()
+S: _nsort_node_t.level[]
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+
+D: nsort_restructure_nodes()
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_t.tail
+F: free()
+S: _nsort_node_t.prev
+S: _nsort_node_t.next
+S: _nsort_t.current
+S: _nsort_t.numNodes
+s: _nsort_t.lh
+s: _nsort_list_t.number
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+F: nsort_new_node()
+s: _nsort_list_t.tail
+s: _nsort_node_t.prev
+s: _nsort_t.numNodes
+S: _nsort_node_t.level[]
+s: _nsort_node_t.level
+s: _nsort_node_t.level[]
+S: _nsort_t.numRestruct
+
+D: nsort_find_item()
+s: _nsort_t.numCompares
+S: _nsort_t.thresh
+F: nsort_restructure_nodes()
+s: _nsort_t.thresh
+S: _nsort_t.numCompares
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_t.tail
+s: _nsort_t.lh
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+s: _nsort_t.compare
+F: *_nsort_t.compare()
+s: _nsort_link_t.data
+S: _nsort_list_t.current
+F: *_nsort_t.compare()
+S: _nsort_t.current
+F: *_nsort_t.compare()
+s: _nsort_link_t.prev
+F: *_nsort_t.compare()
+s: _nsort_node_t.prev
+s: _nsort_node_t.level[]
+s: _nsort_node_t.level
+F: *_nsort_t.compare()
+s: _nsort_node_t.here
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+
+D: nsort_query_item()
+s: _nsort_t.numCompares
+S: _nsort_t.thresh
+F: nsort_restructure_nodes()
+s: _nsort_t.thresh
+S: _nsort_t.numCompares
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_t.tail
+s: _nsort_t.lh
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+S: _nsort_t.sortError
+s: _nsort_t.compare
+F: *_nsort_t.compare()
+s: _nsort_link_t.data
+S: _nsort_list_t.current
+s: _nsort_link_t.prev
+F: *_nsort_t.compare()
+S: _nsort_t.current
+F: *_nsort_t.compare()
+s: _nsort_t.isUnique
+F: *_nsort_t.compare()
+s: _nsort_node_t.prev
+s: _nsort_node_t.level[]
+s: _nsort_node_t.level
+F: *_nsort_t.compare()
+s: _nsort_node_t.here
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+F: *_nsort_t.compare()
+
+D: nsort_store()
+S: _nsort_store_t.isUnique
+s: _nsort_t.isUnique
+S: _nsort_store_t.manageAllocs
+s: _nsort_t.manageAllocs
+F: nsort_list_store()
+s: _nsort_t.lh
+F: nsort_check_list_error()
+S: _nsort_t.sortError
+s: _nsort_list_t.listError
+F: nsort_check_error()
+F: get_sortError()
+
+D: nsort_save()
+F: malloc()
+S: _nsort_t.sortError
+F: memset()
+S: _nsort_store_t.thisMagic
+F: strncpy()
+s: _nsort_store_t.description
+F: time()
+F: localtime_r()
+F: asctime_r()
+F: strchr()
+F: strcpy()
+s: _nsort_store_t.timeStamp
+F: nsort_store()
+F: free()
+
+D: nsort_retrieve()
+S: _nsort_t.lh
+F: nsort_list_create()
+F: nsort_check_error()
+S: _nsort_t.sortError
+F: get_sortError()
+F: set_sortError()
+F: nsort_list_retrieve()
+s: _nsort_t.lh
+F: nsort_check_list_error()
+s: _nsort_list_t.listError
+S: _nsort_t.head
+F: malloc()
+s: _nsort_t.head
+F: memset()
+S: _nsort_t.tail
+s: _nsort_t.tail
+F: free()
+S: _nsort_t.current
+S: _nsort_t.isUnique
+s: _nsort_store_t.isUnique
+S: _nsort_t.manageAllocs
+s: _nsort_store_t.manageAllocs
+S: _nsort_node_t.next
+S: _nsort_node_t.prev
+F: nsort_restructure_nodes()
+F: nsort_del()
+
+D: nsort_get()
+F: memset()
+S: _nsort_t.compare
+F: malloc()
+S: _nsort_t.sortError
+F: nsort_retrieve()
+S: _nsort_t.isUnique
+s: _nsort_store_t.isUnique
+S: _nsort_t.manageAllocs
+s: _nsort_store_t.manageAllocs
+F: free()
+F: nsort_del()
+
+D: nsort_get_all()
+F: memset()
+S: _nsort_t.compare
+F: malloc()
+S: _nsort_t.sortError
+F: nsort_retrieve()
+S: _nsort_t.isUnique
+s: _nsort_store_t.isUnique
+S: _nsort_t.manageAllocs
+s: _nsort_store_t.manageAllocs
+F: strncpy()
+s: _nsort_store_t.description
+s: _nsort_store_t.timeStamp
+F: free()
+F: nsort_del()
+
+D: nsort_remove_item()
+s: _nsort_t.numCompares
+S: _nsort_t.thresh
+F: nsort_restructure_nodes()
+s: _nsort_t.thresh
+S: _nsort_t.numCompares
+s: _nsort_t.lh
+F: set_sortError()
+F: nsort_query_item()
+S: _nsort_t.sortError
+s: _nsort_t.current
+s: _nsort_node_t.here
+S: _nsort_list_t.current
+F: nsort_list_remove_link()
+s: _nsort_list_t.listError
+s: _nsort_node_t.next
+s: _nsort_t.compare
+F: *_nsort_t.compare()
+s: _nsort_link_t.data
+s: _nsort_t.tail
+F: *_nsort_t.compare()
+
+D: nsort_node_levels()
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_node_t.level[]
+s: _nsort_node_t.level
+s: _nsort_t.tail
+S: _nsort_node_level_t.lvl[]
+s: _nsort_node_level_t.lvl
+
+D: nsort_sort_to_list()
+s: _nsort_t.lh
+F: set_sortError()
+S: _nsort_t.lh
+s: _nsort_t.head
+s: _nsort_node_t.next
+s: _nsort_t.tail
+F: free()
+
+D: nsort_list_to_sort()
+F: memset()
+S: _nsort_t.compare
+S: _nsort_t.lh
+S: _nsort_t.head
+F: malloc()
+s: _nsort_t.head
+S: _nsort_t.sortError
+S: _nsort_t.tail
+s: _nsort_t.tail
+F: free()
+S: _nsort_t.current
+S: _nsort_t.isUnique
+S: _nsort_t.manageAllocs
+S: _nsort_node_t.next
+S: _nsort_node_t.prev
+F: nsort_restructure_nodes()
+F: nsort_del()
+
+D: nsort_hash_function()
+
+D: nsort_hash_function_jenkins()
+F: strlen()
+
+D: nsort_hash_create()
+F: malloc()
+F: set_sortError()
+
+D: nsort_hash_destroy()
+F: set_sortError()
+F: free()
+
+D: nsort_hash_init()
+S: _nsort_hash_t.hashError
+F: memset()
+S: _nsort_hash_t.hash
+g: nsort_hash_function
+S: _nsort_hash_t.srts[]
+s: _nsort_hash_t.srts
+F: nsort_create()
+s: _nsort_hash_t.srts[]
+F: nsort_del()
+F: nsort_init()
+s: _nsort_t.sortError
+F: nsort_check_error()
+F: get_sortError()
+
+D: nsort_hash_add_item()
+S: _nsort_hash_t.hashError
+s: _nsort_hash_t.hash
+F: *_nsort_hash_t.hash()
+F: malloc()
+F: strlen()
+F: free()
+F: strcpy()
+S: _nsort_link_t.data
+S: _nsort_hash_t.numCompares
+F: nsort_add_item()
+s: _nsort_hash_t.srts[]
+s: _nsort_hash_t.srts
+S: _nsort_hash_t.number
+s: _nsort_t.numCompares
+s: _nsort_t.sortError
+S: _nsort_t.sortError
+F: nsort_check_error()
+F: get_sortError()
+
+D: nsort_hash_find_item()
+S: _nsort_hash_t.hashError
+s: _nsort_hash_t.hash
+F: *_nsort_hash_t.hash()
+F: malloc()
+F: strlen()
+F: free()
+F: strcpy()
+S: _nsort_link_t.data
+S: _nsort_hash_t.numCompares
+F: nsort_find_item()
+s: _nsort_hash_t.srts[]
+s: _nsort_hash_t.srts
+s: _nsort_t.numCompares
+s: _nsort_link_t.data
+s: _nsort_t.sortError
+S: _nsort_t.sortError
+F: nsort_check_error()
+F: get_sortError()
+
+D: nsort_hash_del()
+S: _nsort_hash_t.hashError
+F: nsort_del()
+s: _nsort_hash_t.srts[]
+s: _nsort_hash_t.srts
+F: nsort_destroy()
+S: _nsort_hash_t.srts[]
+
+D: bqsort()
+F: malloc()
+F: bqsort/cmp()
+F: bqsort/cmp()
+F: bqsort/cmp()
+F: bqsort/cmp()
+F: bqsort/cmp()
+s: stack_node.lo
+s: stack_node.hi
+S: stack_node.lo
+S: stack_node.hi
+F: free()
+F: bqsort/cmp()
+F: bqsort/cmp()
+
+D: nsort_qsort()
+F: bqsort()
+F: memset()
+S: _nsort_t.compare
+S: _nsort_t.lh
+F: nsort_list_create()
+s: _nsort_t.lh
+S: _nsort_t.sortError
+F: nsort_list_init()
+s: _nsort_list_t.listError
+S: _nsort_t.head
+F: malloc()
+s: _nsort_t.head
+S: _nsort_t.tail
+s: _nsort_t.tail
+F: free()
+S: _nsort_t.current
+S: _nsort_t.isUnique
+S: _nsort_node_t.next
+S: _nsort_node_t.prev
+S: _nsort_link_t.data
+S: _nsort_list_t.current
+s: _nsort_list_t.tail
+s: _nsort_link_t.prev
+F: nsort_list_insert_link()
+F: nsort_restructure_nodes()
+F: nsort_del()
+g: returnClean
+
+D: nsort_list_qsort()
+F: malloc()
+s: _nsort_list_t.number
+S: _nsort_t.sortError
+s: _nsort_list_t.head
+s: _nsort_link_t.next
+s: _nsort_list_t.tail
+F: free()
+F: memmove()
+s: _nsort_link_t.data
+F: bqsort()
+F: memset()
+S: _nsort_t.compare
+S: _nsort_t.lh
+S: _nsort_t.head
+s: _nsort_t.head
+S: _nsort_t.tail
+s: _nsort_t.tail
+S: _nsort_t.current
+S: _nsort_t.isUnique
+S: _nsort_t.manageAllocs
+S: _nsort_node_t.next
+S: _nsort_node_t.prev
+F: nsort_restructure_nodes()
+F: nsort_del()
+
+D: fsort_compare()
+F: strcmp()
+
+D: main()
+F: printf()
+F: atoi()
+F: fopen()
+F: perror()
+F: stat()
+F: malloc()
+s: stat.st_size
+F: fprintf()
+g: stderr
+F: fread()
+F: fclose()
+F: free()
+F: memset()
+F: nsort_text_file_split()
+S: _nsort_t.head
+s: _nsort_t.head
+S: _nsort_t.tail
+s: _nsort_t.tail
+S: _nsort_node_t.prev
+S: _nsort_node_t.next
+S: _nsort_t.current
+S: _nsort_t.isUnique
+S: _nsort_t.manageAllocs
+S: _nsort_t.compare
+g: fsort_compare
+S: _nsort_t.lh
+F: nsort_list_create()
+s: _nsort_t.lh
+F: nsort_list_init()
+F: nsort_elapsed()
+S: _hash_link.data
+S: _hash_link.next
+F: nsort_list_del()
+S: _nsort_list_t.current
+s: _nsort_list_t.head
+s: _hash_link.next
+S: _nsort_link_t.data
+s: _hash_link.data
+F: nsort_add_item()
+F: nsort_show_sort_error()
+F: nsort_list_remove_link()
+S: _nsort_link_t.next
+s: _nsort_list_t.tail
+S: _nsort_link_t.prev
+S: _nsort_list_t.number
+s: _nsort_list_t.number
+s: _nsort_link_t.next
+s: _nsort_link_t.prev
+s: _nsort_list_t.current
+s: _nsort_node_t.next
+S: _nsort_t.numNodes
+S: _nsort_t.nodeLevel
+S: _nsort_t.thresh
+S: _nsort_t.numRestruct
+F: fgets()
+F: strchr()
+F: strlen()
+F: strcmp()
+s: _nsort_link_t.data
+
+D: *_nsort_t.compare()
+F: nsort_init/compare()
+
+D: nsort_del/delFunc()
+F: returnClean()
+
+D: *_nsort_t.compare()
+F: nsort_get/compare()
+
+D: *_nsort_t.compare()
+F: nsort_get_all/compare()
+
+D: *_nsort_t.compare()
+F: nsort_list_to_sort/cmp()
+
+D: *_nsort_hash_t.hash()
+F: nsort_hash_function()
+
+D: *_nsort_hash_t.hash()
+F: nsort_hash_init/hash()
+
+D: *_nsort_t.compare()
+F: nsort_qsort/scompare()
+
+D: *_nsort_t.compare()
+F: nsort_list_qsort/compare()
+
+D: *_nsort_t.compare()
+F: fsort_compare()
+
+
+D: nsort_list_merge_sorted/compare()
+F: *nsort_list_merge_sorted()__farg3()
+
+D: compare/nsort_init()
+F: *compare()__farg1()
+
+D: nsort_del/delFunc()
+F: *nsort_del()__farg1()
+
+D: compare/nsort_get()
+F: *compare()__farg1()
+
+D: compare/nsort_get_all()
+F: *compare()__farg1()
+
+D: cmp/nsort_list_to_sort()
+F: *cmp()__farg2()
+
+D: hash/nsort_hash_init()
+F: *hash()__farg2()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: bqsort/cmp()
+F: *bqsort()__farg3()
+
+D: scompare/nsort_qsort()
+F: *scompare()__farg5()
+
+D: compare/nsort_list_qsort()
+F: *compare()__farg3()
+
+R: *nsort_init()__farg1() *nsort_hash_init()__farg1()
+R: *bqsort()__farg3() *nsort_qsort()__farg4()
+R: *nsort_del()__farg1() returnClean()
+R: *bqsort()__farg3() *nsort_list_qsort()__farg3()
+
+
+
+P: /usr/include/x86_64-linux-gnu/bits/byteswap.h
+L: __bswap_16() 33 41
+L: __bswap_32() 48 56
+L: __bswap_64() 69 77
+
+P: /usr/include/x86_64-linux-gnu/bits/uintn-identity.h
+L: __uint16_identity() 32 36
+L: __uint32_identity() 38 42
+L: __uint64_identity() 44 48
+
+P: ../sorthdr.h
+L: nsort_elapsed() 1963 1998
+L: set_sortError() 2008 2030
+L: get_sortError() 2040 2064
+L: nsort_check_error() 2074 2092
+L: nsort_check_list_error() 2102 2119
+L: nsort_check_sort_error() 2129 2147
+L: nsort_show_error() 2161 2216
+L: nsort_show_error_num() 2226 2280
+L: nsort_show_list_error() 2290 2331
+L: nsort_show_sort_error() 2341 2373
+L: nsort_text_file_split() 2383 2438
+L: nsort_list_create() 2448 2469
+L: nsort_list_destroy() 2479 2500
+L: nsort_list_init() 2513 2605
+L: nsort_list_del() 2618 2707
+L: nsort_list_insert_link() 2717 2744
+L: nsort_list_remove_link() 2754 2793
+L: nsort_list_clear() 2803 2830
+L: nsort_list_write_block() 2840 2903
+L: nsort_list_read_block() 2913 2995
+L: nsort_list_store() 3001 3045
+L: nsort_list_save() 3055 3120
+L: nsort_list_retrieve() 3126 3166
+L: nsort_list_get() 3176 3216
+L: nsort_list_get_all() 3226 3271
+L: nsort_list_merge_sorted() 3282 3369
+L: returnClean() 3379 3393
+L: nsort_create() 3403 3424
+L: nsort_destroy() 3434 3453
+L: nsort_init() 3463 3548
+L: nsort_del() 3558 3607
+L: nsort_new_node() 3612 3633
+L: nsort_add_item() 3648 3928
+L: nsort_restructure_nodes() 3938 4044
+L: nsort_find_item() 4054 4245
+L: nsort_query_item() 4255 4488
+L: nsort_store() 4493 4512
+L: nsort_save() 4522 4584
+L: nsort_retrieve() 4589 4639
+L: nsort_get() 4649 4704
+L: nsort_get_all() 4714 4781
+L: nsort_remove_item() 4791 4959
+L: nsort_node_levels() 4969 5001
+L: nsort_sort_to_list() 5011 5057
+L: nsort_list_to_sort() 5067 5137
+L: nsort_hash_function() 5145 5160
+L: nsort_hash_function_jenkins() 5192 5234
+L: nsort_hash_create() 5261 5284
+L: nsort_hash_destroy() 5294 5316
+L: nsort_hash_init() 5326 5402
+L: nsort_hash_add_item() 5412 5468
+L: nsort_hash_find_item() 5478 5534
+L: nsort_hash_del() 5544 5569
+L: bqsort() 5984 6131
+L: nsort_qsort() 6133 6200
+L: nsort_list_qsort() 6202 6283
+
+P: fsort2.c
+L: fsort_compare() 62 72
+L: main() 74 503
+
+
+P: /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h
+Y: timeval 8 17
+
+P: /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h
+Y: __pthread_internal_list 51 55
+
+P: /usr/include/x86_64-linux-gnu/bits/struct_mutex.h
+Y: __pthread_mutex_s 22 53
+
+P: /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
+Y: pthread_mutex_t 67 72
+
+P: /usr/include/x86_64-linux-gnu/bits/struct_stat.h
+Y: stat 26 99
+
+P: ../sorthdr.h
+Y: _nsort_link_t 495 500
+Y: _nsort_list_t 538 546
+Y: _nsort_node_t 579 584
+Y: _nsort_store_t 614 624
+Y: _nsort_node_level_t 680 682
+Y: _nsort_t 710 727
+Y: _nsort_hash_t 815 821
+Y: stack_node 5949 5953
+
+P: fsort2.c
+Y: _hash_link 57 60
+#455 types
+#235 arglists
+#530 regions
+#64 function definitions

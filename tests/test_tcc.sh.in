@@ -1,0 +1,155 @@
+#!/bin/sh
+
+if [ "$1" == "" ]; then
+  echo "Usage: $0 num_items"
+  echo "  where num_items is the number of iterations to run (i.e., 50)"
+  echo "  of each test."
+  exit 1
+fi
+
+echo ""
+echo "Doing $1 iterations..."
+echo ""
+
+echo "Executing floglist_tcc.sh: `date +%Y%m%d@%T`"
+bash floglist_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "floglist_tcc.sh failed"
+	exit 1
+fi
+echo "Finished floglist_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing floglist_l_tcc.sh: `date +%Y%m%d@%T`"
+bash floglist_l_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "floglist_l_tcc.sh failed"
+	exit 1
+fi
+echo "Finished floglist_l_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrt_tcc.sh: `date +%Y%m%d@%T`"
+bash flogsrt_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrt_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogsrt_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrt_l_tcc.sh: `date +%Y%m%d@%T`"
+bash flogsrt_l_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrt_l_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogsrt_l_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flognsrt_tcc.sh: `date +%Y%m%d@%T`"
+bash flognsrt_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flognsrt_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flognsrt_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flognsrt_l_tcc.sh: `date +%Y%m%d@%T`"
+bash flognsrt_l_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flognsrt_l_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flognsrt_l_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtq_tcc.sh: `date +%Y%m%d@%T`"
+bash flogsrtq_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtq_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtq_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtq2_tcc.sh: `date +%Y%m%d@%T`"
+bash flogsrtq2_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtq2_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtq2_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing floghash_tcc.sh: `date +%Y%m%d@%T`"
+bash floghash_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "floghash_tcc.sh failed"
+	exit 1
+fi
+echo "Finished floghash_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing floghash_l_tcc.sh: `date +%Y%m%d@%T`"
+bash floghash_l_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "floghash_l_tcc.sh failed"
+	exit 1
+fi
+echo "Finished floghash_l_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogthrd_tcc.sh: `date +%Y%m%d@%T`"
+bash flogthrd_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogthrd_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogthrd_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtsys_tcc.sh: `date +%Y%m%d@%T`"
+bash flogsrtsys_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtsys_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtsys_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing fsort_tcc.sh: `date +%Y%m%d@%T`"
+bash fsort_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "fsort_tcc.sh failed"
+	exit 1
+fi
+echo "Finished fsort_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogcmp_tcc.sh: `date +%Y%m%d@%T`"
+bash flogcmp_tcc.sh $1
+if [ $? != 0 ]; then
+	echo "flogcmp_tcc.sh failed"
+	exit 1
+fi
+echo "Finished flogcmp_tcc.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Everything completed successfully."
+

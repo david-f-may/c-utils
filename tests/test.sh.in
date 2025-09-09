@@ -1,0 +1,175 @@
+#!/bin/sh
+
+if [ "$1" == "" ]; then
+  echo "Usage: $0 num_items"
+  echo "  where num_items is the number of iterations to run (i.e., 50)"
+  echo "  of each test."
+  exit 1
+fi
+
+echo ""
+echo "Doing $1 iterations..."
+echo ""
+
+echo "Executing floglist.sh: `date +%Y%m%d@%T`"
+bash floglist.sh $1
+if [ $? != 0 ]; then
+	echo "floglist.sh failed"
+	exit 1
+fi
+echo "Finished floglist.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing floglist_l.sh: `date +%Y%m%d@%T`"
+bash floglist_l.sh $1
+if [ $? != 0 ]; then
+	echo "floglist_l.sh failed"
+	exit 1
+fi
+echo "Finished floglist_l.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrt.sh: `date +%Y%m%d@%T`"
+bash flogsrt.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrt.sh failed"
+	exit 1
+fi
+echo "Finished flogsrt.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrt_l.sh: `date +%Y%m%d@%T`"
+bash flogsrt_l.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrt_l.sh failed"
+	exit 1
+fi
+echo "Finished flogsrt_l.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtsm.sh: `date +%Y%m%d@%T`"
+bash flogsrtsm.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtsm.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtsm.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flognsrt.sh: `date +%Y%m%d@%T`"
+bash flognsrt.sh $1
+if [ $? != 0 ]; then
+	echo "flognsrt.sh failed"
+	exit 1
+fi
+echo "Finished flognsrt.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flognsrt_l.sh: `date +%Y%m%d@%T`"
+bash flognsrt_l.sh $1
+if [ $? != 0 ]; then
+	echo "flognsrt_l.sh failed"
+	exit 1
+fi
+echo "Finished flognsrt_l.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtq.sh: `date +%Y%m%d@%T`"
+bash flogsrtq.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtq.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtq.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtq2.sh: `date +%Y%m%d@%T`"
+bash flogsrtq2.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtq2.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtq2.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrsm.sh: `date +%Y%m%d@%T`"
+bash flogsrsm.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrsm.sh failed"
+	exit 1
+fi
+echo "Finished flogsrsm.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing floghash.sh: `date +%Y%m%d@%T`"
+bash floghash.sh $1
+if [ $? != 0 ]; then
+	echo "floghash.sh failed"
+	exit 1
+fi
+echo "Finished floghash.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing floghash_l.sh: `date +%Y%m%d@%T`"
+bash floghash_l.sh $1
+if [ $? != 0 ]; then
+	echo "floghash_l.sh failed"
+	exit 1
+fi
+echo "Finished floghash_l.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogthrd.sh: `date +%Y%m%d@%T`"
+bash flogthrd.sh $1
+if [ $? != 0 ]; then
+	echo "flogthrd.sh failed"
+	exit 1
+fi
+echo "Finished flogthrd.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogsrtsys.sh: `date +%Y%m%d@%T`"
+bash flogsrtsys.sh $1
+if [ $? != 0 ]; then
+	echo "flogsrtsys.sh failed"
+	exit 1
+fi
+echo "Finished flogsrtsys.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing fsort.sh: `date +%Y%m%d@%T`"
+bash fsort.sh $1
+if [ $? != 0 ]; then
+	echo "fsort.sh failed"
+	exit 1
+fi
+echo "Finished fsort.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Executing flogcmp.sh: `date +%Y%m%d@%T`"
+bash flogcmp.sh $1
+if [ $? != 0 ]; then
+	echo "flogcmp.sh failed"
+	exit 1
+fi
+echo "Finished flogcmp.sh: `date +%Y%m%d@%T`"
+echo ""
+echo ""
+
+echo "Everything completed successfully."
+
