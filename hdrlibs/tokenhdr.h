@@ -167,7 +167,7 @@
         char ch;
         CDBTokenType ptoken;
         CDBTokenType ttoken;
-        unsigned lnctr;
+        unsigned int lnctr, col;
         size_t datasize;        /* size of the data in databuf */
         char *datap;            /* pointer to the data in databuf */
     } parseItem;
@@ -332,6 +332,7 @@ parseItem *initParser(const char *file) {
      */
     parseError = PARS_NOERROR;
     pi->lnctr = 1;
+    pi->col = 1;
     pi->keep = TOKFALSE;
     pi->ptoken = pi->ttoken = NONE;
     return pi;
@@ -409,6 +410,7 @@ parseItem *initStrParser(const char *parstr) {
      */
     parseError = PARS_NOERROR;
     pi->lnctr = 1;
+    pi->col = 1;
     pi->keep = TOKFALSE;
     pi->ptoken = pi->ttoken = NONE;
     return pi;
@@ -648,6 +650,7 @@ CDBTokenType getToken(parseItem * pi) {
             set_state(CHAR_CONSTANT);
         case '\n':
             pi->lnctr++;
+            pi->col = 1;
             pi->ch = get_next_char(pi);
             if (pi->ch == EOF)
                 pi->lnctr--;
@@ -823,6 +826,7 @@ CDBTokenType getToken(parseItem * pi) {
     }
     else if (pi->ch == '\n') {
         pi->lnctr++;
+        pi->col = 1;
         pi->id[pi->idx++] = pi->ch;
         set_state(STRING_CONSTANT);
     }
@@ -878,6 +882,7 @@ CDBTokenType getToken(parseItem * pi) {
   state(REMARK):
     if (pi->ch == '\n') {
         pi->lnctr++;
+        pi->col = 1;
         set_state(REMARK);
     }
     else if (pi->ch == '*')
@@ -892,6 +897,7 @@ CDBTokenType getToken(parseItem * pi) {
     state_nk(CPP_REMARK);
     if (pi->ch == '\n') {
         pi->lnctr++;            /* increment line counter */
+        pi->col = 1;
         set_state(OUTSIDE);
     }
     else
@@ -899,6 +905,7 @@ CDBTokenType getToken(parseItem * pi) {
     state_nk(PREPROCESSOR);
     if (pi->ch == '\n') {
         pi->lnctr++;
+        pi->col = 1;
         pi->id[pi->idx++] = '\0';
         pi->keep = TOKFALSE;
         //check_pointer (pi->id);
@@ -935,6 +942,7 @@ int get_next_char(parseItem * pi) {
         return EOF;
     ch = *pi->datap;
     pi->datap++;
+    pi->col++;
     if (ch == '\0')
         return (EOF);
     else
@@ -942,13 +950,14 @@ int get_next_char(parseItem * pi) {
 }
 
 #define ERR_HERE_LEN 10
-#define ERR_HERE_MAX (ERR_HERE_LEN*2+7)
+#define ERR_HERE_MAX (ERR_HERE_LEN*2+25)
 
 char *errorLocation (parseItem *pi)
 {
     int soff = 0, eoff = 0, val = 0;
     char sptr[ERR_HERE_LEN+1], eptr[ERR_HERE_LEN+1];
     static char scr[ERR_HERE_MAX];
+    char *cp;
 
     /*
      * Initialize return string
@@ -983,7 +992,10 @@ char *errorLocation (parseItem *pi)
     sptr[soff] = '\0';
     strncat (eptr, &pi->databuf[off], eoff);
     eptr[eoff] = '\0';
-    snprintf (scr, ERR_HERE_MAX-1, "%s ^^^ %s", sptr, eptr);
+    snprintf (scr, ERR_HERE_MAX-1, "col %d: near  %s ^^^ %s", pi->col, sptr, eptr);
+    cp = strchr (scr, '\n');
+    if (cp != NULL)
+        *cp = '\0';
     return (scr);
 }
 

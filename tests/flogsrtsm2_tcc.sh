@@ -12,11 +12,11 @@ fi
 while [ 1  = 1 ]; do
 	echo "Running #$cnt"
 	echo "$keys keys"
-	#tcc -I.. -I.. -run words.c $keys $len > input
+	#tcc -I.. -I../hdrlibs -run words.c $keys $len > input
 	./words $keys $len > input
 	echo ""
 	echo "--------------------------------------------------"
-	tcc -I.. -I.. -run flogsrtsm2.c $keys input
+	tcc -I.. -I../hdrlibs -run flogsrtsm2.c $keys input
 	if [ $? != 0 ]; then
 		echo " failed!"
 		exit 1

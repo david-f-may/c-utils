@@ -14,7 +14,7 @@ while [ 1 == 1 ]; do
 	echo "$keys keys for #$cnt ..."
     c2m words.c -eg $keys $length > inputlst
 	echo "running #$cnt ..."
-	c2m -I.. floglist.c -eg inputlst
+	c2m -I.. -I../hdrlibs floglist.c -eg inputlst
 	if [ $? != 0 ]; then
 		echo " failed!"
 		echo "inputlst producing the failure is left in \"inputlst\""

@@ -84,7 +84,7 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = ${SHELL} $(install_sh) -c -s
 IS_LATEX = yes
 LDFLAGS = 
-LIBNSORT_CFLAGS = ${CFLAGS} -I..
+LIBNSORT_CFLAGS = ${CFLAGS} -I.. -I../hdrlibs
 LIBNSORT_LIBS = -lm -lpthread
 LIBOBJS = 
 LIBS = 
@@ -98,7 +98,7 @@ MAINTAINER_MODE_TRUE = #
 NSORTC_CFLAGS = 
 NSORTC_LIBS = 
 NSORT_CC = clang-20
-NSORT_CFLAGS = ${CFLAGS} -std=gnu11 -I.. -D__linux__ -fPIC
+NSORT_CFLAGS = ${CFLAGS} -std=gnu11 -I.. -I../hdrlibs -D__linux__ -fPIC
 NSORT_LIBRARY_PATH = .:${exec_prefix}/sort
 NSORT_LIBS = -L${exec_prefix}/lib -lm -lpthread
 NSORT_MODULE_EXT = 
@@ -329,64 +329,64 @@ uninstall-am: uninstall-binSCRIPTS uninstall-info-am
 
 
 words:	words.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o words words.c
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o words words.c
 
 mkdups:	mkdups.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o mkdups mkdups.c
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o mkdups mkdups.c
 
 rough_sort:	rough_sort.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o rough_sort rough_sort.c
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o rough_sort rough_sort.c
 
 floglist:	floglist.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o floglist floglist.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o floglist floglist.c -lpthread
 
 floglist_l:	floglist_l.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o floglist_l floglist_l.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o floglist_l floglist_l.c -lpthread
 
 flogsrt:	flogsrt.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrt flogsrt.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrt flogsrt.c -lpthread
 
 flogsrt_l:	flogsrt_l.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrt_l flogsrt_l.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrt_l flogsrt_l.c -lpthread
 
 flognsrt:	flognsrt.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flognsrt flognsrt.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flognsrt flognsrt.c -lpthread
 
 flognsrt_l:	flognsrt_l.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flognsrt_l flognsrt_l.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flognsrt_l flognsrt_l.c -lpthread
 
 flogsrtsm:	flogsrtsm.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrtsm flogsrtsm.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrtsm flogsrtsm.c -lpthread
 
 flogsrtsm2:	flogsrtsm2.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrtsm2 flogsrtsm2.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrtsm2 flogsrtsm2.c -lpthread
 
 flogsrtq:	flogsrtq.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrtq flogsrtq.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrtq flogsrtq.c -lpthread
 
 flogsrtq2:	flogsrtq2.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrtq2 flogsrtq2.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrtq2 flogsrtq2.c -lpthread
 
 floghash:	floghash.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o floghash floghash.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o floghash floghash.c -lpthread
 
 floghash_l:	floghash_l.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o floghash_l floghash_l.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o floghash_l floghash_l.c -lpthread
 
 flogthrd:	flogthrd.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogthrd flogthrd.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogthrd flogthrd.c -lpthread
 
 flogsrtsys:	flogsrtsys.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogsrtsys flogsrtsys.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogsrtsys flogsrtsys.c -lpthread
 
 #fsort:	fsort.c
-#	$(CC) $(NSORT_CFLAGS) -I.. -o fsort fsort.c -lpthread
+#	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o fsort fsort.c -lpthread
 
 fsort2:	fsort2.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o fsort2 fsort2.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o fsort2 fsort2.c -lpthread
 
 flogcmp:	flogcmp.c
-	$(CC) $(NSORT_CFLAGS) -I.. -o flogcmp flogcmp.c -lpthread
+	$(CC) $(NSORT_CFLAGS) -I.. -I../hdrlibs -o flogcmp flogcmp.c -lpthread
 
 test.sh: test.sh.in $(test_DEPS)
 	-rm -f test.sh

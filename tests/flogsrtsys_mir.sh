@@ -17,7 +17,7 @@ while [ 1 == 1 ]; do
  echo "sorting..."
  sort inputshl > inputshl.srt
  echo "running #$cnt ..."
- c2m -I.. flogsrtsys.c -ei inputshl $keys
+ c2m -I.. -I../hdrlibs flogsrtsys.c -ei inputshl $keys
  if [ $? != 0 ]; then
   echo " failed!"
   echo "inputshl producing the failure is left in \"inputshl\""

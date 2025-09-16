@@ -9,7 +9,7 @@ echo "Doing $endhere iterations of flogsrtq"
 echo ""
 
 cnt=1
-keys=400000
+keys=500000
 lengths=38
 while [ 1 == 1 ]; do
  ./words $keys $lengths > input

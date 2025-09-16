@@ -54,13 +54,13 @@ while [ 1 == 1 ]; do
  tcc -run mkdups.c input.1 input 2
  rm -f input.1
  numitems=`wc -l input | awk '{print $1}'`
- tcc -run -I.. rough_sort.c $numitems $length input > inputsrt
+ tcc -run -I.. -I../hdrlibs rough_sort.c $numitems $length input > inputsrt
  echo "sorting..."
  time sort input > inputsrt.srt
  echo "reverse sorting..."
  time sort -r input > inputsrt.rev.srt
  echo "running #$cnt ..."
- tcc -run -I.. flognsrt.c inputsrt inputsrt.srt inputsrt.rev.srt
+ tcc -run -I.. -I../hdrlibs flognsrt.c inputsrt inputsrt.srt inputsrt.rev.srt
  if [ $? != 0 ]; then
   echo " failed!"
   echo "inputsrt producing the failure is left in \"inputsrt\""

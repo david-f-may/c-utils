@@ -18,7 +18,7 @@ while [ 1 == 1 ]; do
  echo "reverse sorting..."
  sort -r inputsrt > inputsrt.rev.srt
  echo "running #$cnt ..."
- c2m -I.. flogsrtq2.c -eg $keys inputsrt inputsrt.srt inputsrt.rev.srt
+ c2m -I.. -I../hdrlibs flogsrtq2.c -eg $keys inputsrt inputsrt.srt inputsrt.rev.srt
  if [ $? != 0 ]; then
   echo " failed!"
   echo "input producing the failure is left in \"inputshl\""

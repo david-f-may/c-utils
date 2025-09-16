@@ -16,8 +16,8 @@ while [ 1 == 1 ]; do
  ./words $keys $lengths > input
  # Comment the following and uncomment the cp if you want to test
  # nsort on raw data.
- ./rough_sort 500000 38 input > inputsrt
-# cp input inputsrt
+ # ./rough_sort $keys $lengths input > inputsrt
+ cp input inputsrt
  echo "sorting..."
  time sort input |uniq >  inputsrt.srt
  echo "reverse sorting..."

@@ -15,7 +15,7 @@ while [ 1 == 1 ]; do
 	echo "$keys keys for #$cnt ..."
 	tcc -run words.c $keys $lengths > inputlst
 	echo "running #$cnt ..."
-	tcc -I../include -I../lib -run floglist.c inputlst
+	tcc -I../hdrlibs  -I.. -run floglist.c inputlst
 	if [ $? != 0 ]; then
 		echo " failed!"
 		echo "inputlst producing the failure is left in \"inputlst\""

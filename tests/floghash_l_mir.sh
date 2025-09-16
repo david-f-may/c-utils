@@ -10,9 +10,9 @@ fi
 while [ $cnt -le $endhere ]; do
  echo "$keys keys for #$cnt ..."
  c2m words.c -eg $keys $length > input
- c2m -I.. rough_sort.c -ei $keys $length input > input.srt
+ c2m -I.. -I../hdrlibs rough_sort.c -ei $keys $length input > input.srt
  echo "running #$cnt ..."
- c2m -I.. floghash_l.c -eg input.srt
+ c2m -I.. -I../hdrlibs floghash_l.c -eg input.srt
  if [ $? != 0 ]; then
   echo " failed!"
   echo "inputshl producing the failure is left in \"input\""

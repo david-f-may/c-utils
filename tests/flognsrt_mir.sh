@@ -54,13 +54,13 @@ while [ 1 == 1 ]; do
  c2m mkdups.c -ei input.1 input 2
  rm -f input.1
  numitems=`wc -l input | awk '{print $1}'`
- c2m -I.. rough_sort.c -eg $numitems $length input > inputsrt
+ c2m -I.. -I../hdrlibs rough_sort.c -eg $numitems $length input > inputsrt
  echo "sorting..."
  time sort input > inputsrt.srt
  echo "reverse sorting..."
  time sort -r input > inputsrt.rev.srt
  echo "running #$cnt ..."
- c2m -I.. flognsrt.c -eg  inputsrt inputsrt.srt inputsrt.rev.srt
+ c2m -I.. -I../hdrlibs flognsrt.c -eg  inputsrt inputsrt.srt inputsrt.rev.srt
  if [ $? != 0 ]; then
   echo " failed!"
   echo "inputsrt producing the failure is left in \"inputsrt\""

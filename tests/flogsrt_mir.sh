@@ -16,14 +16,14 @@ while [ 1 == 1 ]; do
  c2m words.c -eg $keys $length > input
  # Comment the following and uncomment the cp if you want to test
  # nsort on raw data.
- c2m -I.. rough_sort.c -eg $keys $length input > inputsrt
+ c2m -I.. -I../hdrlibs rough_sort.c -eg $keys $length input > inputsrt
 # cp input inputsrt
  echo "sorting..."
  time sort input |uniq >  inputsrt.srt
  echo "reverse sorting..."
  time sort -r input |uniq > inputsrt.rev.srt
  echo "running #$cnt ..."
- c2m -I.. flogsrt.c -eg inputsrt inputsrt.srt inputsrt.rev.srt
+ c2m -I.. -I../hdrlibs flogsrt.c -eg inputsrt inputsrt.srt inputsrt.rev.srt
  if [ $? != 0 ]; then
   echo " failed!"
   echo "inputsrt producing the failure is left in \"inputsrt\""

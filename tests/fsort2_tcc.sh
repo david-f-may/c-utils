@@ -1,5 +1,5 @@
 cnt=1
-keys=500000
+keys=1000000
 length=38
 endhere=100
 
@@ -15,7 +15,7 @@ while [ $cnt -le $endhere ]; do
  echo "reverse sorting..."
  time sort -r input > input.rev.srt
  echo "running #$cnt ..."
- tcc -run -I.. fsort2.c  $keys $length input input.srt input.rev.srt
+ tcc -run -I.. -I../hdrlibs fsort2.c  $keys $length input input.srt input.rev.srt
  if [ $? != 0 ]; then
   echo " failed!"
   echo "inputshl producing the failure is left in \"input\""
